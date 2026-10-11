@@ -1,0 +1,8 @@
+import { Mail, MapPin, MessageCircle } from 'lucide-react';
+import { PageHeader } from '@/components/PageHeader';
+import { useEnquiry } from '@/context/EnquiryContext';
+
+export function Contact() {
+  const { openModal } = useEnquiry();
+  return <><PageHeader eyebrow="Product Request" title="Looking for a specific seed?" description="Tell us about the variety and quantity you need, and our team will help you find the right product." /><section className="bg-paper-50"><div className="mx-auto grid max-w-edge gap-8 px-4 py-12 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-16"><div className="space-y-4 lg:col-span-4"><div className="border border-ink-900/15 p-5"><Mail className="h-5 w-5 text-terracotta-500" /><p className="label-tag mt-4">Email</p><a className="mt-1 block text-sm text-ink-700 hover:text-terracotta-500" href="mailto:kasiv931@gmail.com">kasiv931@gmail.com</a></div><div className="border border-ink-900/15 p-5"><MapPin className="h-5 w-5 text-terracotta-500" /><p className="label-tag mt-4">Office</p><p className="mt-1 text-sm leading-relaxed text-ink-700">KPHB Colony, Hyderabad, Telangana 500072</p></div></div><div className="border border-ink-900/15 bg-paper-100 p-6 lg:col-span-8 sm:p-8"><p className="label-tag text-terracotta-500">Get in touch</p><h2 className="mt-3 font-serif text-3xl text-ink-900">Send your requirement.</h2><p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-600">Include your preferred variety, required quantity, and location. The enquiry form prepares a WhatsApp message for a quick response.</p><button onClick={() => openModal()} className="btn-primary mt-7"><MessageCircle className="h-4 w-4" />Request seeds</button></div></div></section></>;
+}

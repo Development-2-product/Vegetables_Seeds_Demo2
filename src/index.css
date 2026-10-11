@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink-900/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-paper-50 text-ink-900 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-terracotta-500 text-paper-50;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-cobalt-500 ring-offset-2 ring-offset-paper-50;
+  }
+}
+
+@layer components {
+  .rule-line {
+    @apply border-t border-ink-900/15;
+  }
+
+  .rule-line-thick {
+    @apply border-t-2 border-ink-900;
+  }
+
+  .label-tag {
+    @apply font-mono text-[0.625rem] uppercase tracking-[0.18em] text-ink-500;
+  }
+
+  .label-tag-sm {
+    @apply font-mono text-[0.5625rem] uppercase tracking-[0.15em] text-ink-500;
+  }
+
+  .editorial-h {
+    @apply font-serif font-light tracking-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink-900 px-6 py-3 text-sm font-medium text-paper-50 transition-all hover:bg-terracotta-500 active:scale-[0.98] disabled:opacity-40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink-900 bg-transparent px-6 py-3 text-sm font-medium text-ink-900 transition-all hover:bg-ink-900 hover:text-paper-50 active:scale-[0.98];
+  }
+
+  .btn-terracotta {
+    @apply inline-flex items-center justify-center gap-2 bg-terracotta-500 px-6 py-3 text-sm font-medium text-paper-50 transition-all hover:bg-terracotta-600 active:scale-[0.98];
+  }
+
+  /* Glass is an accent for floating layers only; catalogue content stays solid
+     so text, filters, and product data keep their contrast and clarity. */
+  .glass-nav {
+    background: rgba(247, 243, 234, 0.84);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+    border-color: rgba(31, 29, 26, 0.14);
+    box-shadow: 0 8px 24px rgba(31, 29, 26, 0.06);
+  }
+
+  .glass-modal {
+    background: rgba(247, 243, 234, 0.92);
+    backdrop-filter: blur(20px) saturate(125%);
+    -webkit-backdrop-filter: blur(20px) saturate(125%);
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    box-shadow: 0 24px 70px rgba(31, 29, 26, 0.28);
+  }
+
+  .glass-label {
+    background: rgba(247, 243, 234, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+  }
+
+  .data-row {
+    @apply flex flex-col gap-1 border-t border-ink-900/10 py-3 sm:flex-row sm:items-baseline sm:justify-between;
+  }
+
+  .data-label {
+    @apply label-tag-sm shrink-0;
+  }
+
+  .data-value {
+    @apply text-sm font-medium text-ink-800 sm:text-right;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F3EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #6B655B;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3D3933;
+}
